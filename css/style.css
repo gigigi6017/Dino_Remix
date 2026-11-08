@@ -1,0 +1,225 @@
+/* ================================
+   1. 기본 설정
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #171923;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ================================
+   2. 게임 전체와 화면
+================================ */
+.game-container {
+    width: 900px;
+    max-width: 95%;
+    text-align: center;
+}
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 25px;
+    color: #9ee493;
+}
+
+.game-screen {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    background: #242938;
+    border: 3px solid #697386;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* ================================
+   3. 점수
+================================ */
+.game-info {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: #ffffff;
+
+    /* 드래그 및 글자 선택 방지 */
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* ================================
+   4. 게임 세계와 공룡
+================================ */
+.game-world {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+    touch-action: none;
+}
+
+.dino {
+    position: absolute;
+    bottom: 20px;
+    left: 100px;
+    font-size: 35px;
+}
+
+.dino.crouching {
+    transform: scaleY(0.55);
+    transform-origin: bottom center;
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background: #a0a0a0;
+    pointer-events: none;
+}
+
+/* ================================
+   5. 시작 화면
+================================ */
+.start-screen {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.start-screen h2 {
+    font-size: 30px;
+}
+
+#start-button {
+    padding: 12px 35px;
+    border: none;
+    border-radius: 8px;
+    background: #9ee493;
+    color: #171923;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#start-button:hover {
+    background: #c5ffb8;
+}
+
+/* ================================
+   6. 장애물
+================================ */
+.obstacle {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: auto;
+    width: 50px;
+    font-size: 40px;
+}
+
+.obstacle.cactus-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+    width: max-content;
+    font-size: initial;
+    white-space: nowrap;
+}
+
+.cactus + .cactus {
+    margin-left: -10px;
+}
+
+.cactus {
+    display: block;
+    line-height: 1;
+}
+
+.cactus.small {
+    font-size: 34px;
+}
+
+.cactus.large {
+    font-size: 52px;
+}
+
+.obstacle.pterodactyl {
+    width: auto;
+    font-size: 40px;
+    line-height: 1;
+    animation: pterodactylFlap 0.22s ease-in-out infinite alternate;
+}
+
+@keyframes pterodactylFlap {
+    from {
+        transform: rotate(-8deg) translateY(-2px);
+    }
+    to {
+        transform: rotate(8deg) translateY(2px);
+    }
+}
+
+/* ================================
+   7. 게임 오버 화면
+================================ */
+.game-over-screen {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+.game-over-screen h2 {
+    font-size: 36px;
+    color: #ff6464;
+}
+
+.game-over-screen p {
+    font-size: 16px;
+    color: white;
+}
+
+#restart-button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 8px;
+    background: #9ee493;
+    color: #171923;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#restart-button:hover {
+    background: #c5ffb8;
+}

@@ -3,15 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Dino Remix</title>
-
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <main class="game-container">
+        <h1>Dino Remix</h1>
 
-    <h1>Dino Remix</h1>
+        <section class="game-screen">
+            <div class="game-info">
+                <span>점수: 0</span>
+                <span>최고 기록: 0</span>
+            </div>
 
-    <script src="js/game.js"></script>
+            <div class="game-world">
+                <div class="dino">🦖</div>
+                <div class="ground"></div>
+            </div>
+
+            <div class="start-screen">
+                <h2>클릭해서 시작</h2>
+                <button id="start-button">게임 시작</button>
+            </div>
+
+            <div class="game-over-screen" style="display: none;">
+                <h2>GAME OVER</h2>
+                <p>공룡이 장애물에 부딪혔어!</p>
+                <button id="restart-button">다시 시작</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- type="module"은 여러 JS 파일을 import해서 사용하기 위한 설정 -->
+    <script type="module" src="js/game.js"></script>
 </body>
 </html>
